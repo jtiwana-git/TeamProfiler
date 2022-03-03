@@ -9,7 +9,7 @@ const Intern = require("./lib/Intern");
 
 
 
-function Questionmanager() {
+function QuestionsManager() {
 
   inquirer.prompt([
     {
