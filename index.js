@@ -11,137 +11,165 @@ const Ateam = []
 
 const managerQuestions = () => {
 
-inquirer
-.prompt([
+  inquirer.prompt([
     {
-    type:"input",
+    type: "input",
     name: "name",
-    message:"What is the team manager's name?",
+    message: "What is the team manager's name?",
     },
     {
     type: "input",
     name: "id",
-      message: "What is the team manager's employee id?",
+    message: "What is the team manager's employee id?",
     },
     {
     type: "input",
     name: "email",
     message: "What is the team manager's email?",
+    validate: (validEmail) => {
+      const valid = validEmail.match(/\S+@\S+\.\S+/);
+      if (valid) {
+        return true
+         
+      } else {
+        return "Please enter a valid email address";
+      }
+    }
+    
     },
     {
     type: "input",
     name: "officeNumber",
     message: "What is the team manager's office number?",
-    },
+    }
   
   ])
   .then((managerAnswers) => {
     const Mang = new Manager(managerAnswers.name, managerAnswers.id, managerAnswers.email, managerAnswers.officeNumber)
-    Ateam.push(Mang)
+    Ateam.push(Mang);
+    choose();
   })
 
 }
 
 managerQuestions()
 
+const engineerQuestions = () => {
 
-// function for manager.inquirer
-// .then create an new manager
+  inquirer.prompt([
+    {
+    type: "input",
+    name: "name",
+    message: "What is the engineer's name?",
+    },
+    {
+    type: "input",
+    name: "id",
+    message: "What is the engineer's employee id?",
+    },
+    {
+    type: "input",
+    name: "email",
+    message: "What is the engineer's email?",
+    validate: (validEmail) => {
+      const valid = validEmail.match(/\S+@\S+\.\S+/);
+      if (valid) {
+        return true
+         
+      } else {
+        return "Please enter a valid email address";
+      }
+    }
+    },
+    {
+    type: "input",
+    name: "gitHub",
+    message: "What is the engineer's github username?",
+    },
+  
+  ])
+  .then((engineerAnswers) => {
+    const eng = new Engineer(engineerAnswers.name, engineerAnswers.id, engineerAnswers.email, engineerAnswers.gitHub)
+    Ateam.push(eng);
+    choose()
+  })
 
-
-// inquirer.prompt([
-//     {
-//     type:"input",
-//     name: "name",
-//     message:"Manager: What is the name?"
-//     },
-//     {
-//     type: "input",
-//     name: "managerId",
-//     message: "Manager: What is the employee ID?"
-//     },
-//     {
-//     type: "input",
-//     name: "emailManager",
-//     message: "Manager: What is the email address?",
-//     },
-//     {
-//     type: "input",
-//     name: "officeNumber",
-//     message: "Manager: What is the office number?"
-//     },
-//     {
-//     type: "list",
-//     name: "getRoles",
-//     Message: "What role do you want to add?",
-//     Choices: ["Engineer", "Intern", "Build My Team"],
-//     },
-//     {
-//     type:"input",
-//     name: "name",
-//     message:"Engineer: What is the name?"
-//     },
-//     {
-//     type: "input",
-//     name: "EngineerId",
-//     message: "Engineer: What is the employee ID?"
-//     },
-//     {
-//     type: "input",
-//     name: "emailEngineer",
-//     message: "Engineer: What is the email address?",
-//     },
-//     {
-//     type: "input",
-//     name: "GithubEngineer",
-//     message: "Engineer: What is the Git Hub username?",
-//     },
-//     {
-//     type:"input",
-//     name: "name",
-//     message:"Intern: What is the name?"
-//     },
-//     {
-//     type: "input",
-//     name: "InternId",
-//     message: "Intern: What is the employee ID?"
-//     },
-//     {
-//     type: "input",
-//     name: "emailIntern",
-//     message: "Intern: What is the email address?",
-//     },
-//     {
-//     type: "input",
-//     name: "School",
-//     message: "Name of School?",
-//     },
-// ]);
-
-// }
-
-
-
-// function choose roles or create team
-
-// functionS for each roles and .then
-
-// function create team 
-
-
-// this switch to choose roles
-
-
-
-function writeToFile(fileName, data) {
-    return fs.writeFileSync(path.join(process.cwd(), fileName), data)
 }
 
-function init() {
-    inquirer.prompt().then((answers) =>{
-      console.log(answers);
+const internQuestions = () => {
+
+  inquirer.prompt([
+    {
+    type: "input",
+    name: "name",
+    message: "What is the intern's name?",
+    },
+    {
+    type: "input",
+    name: "id",
+    message: "What is the intern's employee id?",
+    },
+    {
+    type: "input",
+    name: "email",
+    message: "What is the intern's email?",
+    validate: (validEmail) => {
+      const valid = validEmail.match(/\S+@\S+\.\S+/);
+      if (valid) {
+        return true
+         
+      } else {
+        return "Please enter a valid email address";
+      }
+    }
+    },
+    {
+    type: "input",
+    name: "school",
+    message: "What school does the intern attend?",
+    },
+  
+  ])
+  .then((internAnswers) => {
+    const inter = new Intern(internAnswers.name, internAnswers.id, internAnswers.email, internAnswers.school)
+    Ateam.push(inter);
+    choose();
+  })
+
+}
+
+
+
+const choose = () => {
+
+  inquirer.prompt([
+    {
+      type: "list",
+      name: "select",
+      message: "Do you want to add a member or generate the team?",
+      choices: ["Engineer", "Intern", "Create the team"],
+    }
+  ])
+    .then((answers) =>{
+      switch (answers.select){
+        case "Engineer": 
+        engineerQuestions()
+        break;
+        case "Intern":
+          internQuestions()
+        break;
+        default:
+          buildTeam()
+        
+
+
+      }
 
     })
+  
 }
 
-init()
+function buildTeam (){
+  fs.writeFileSync(path.join('./dist/template.html'), generateHTML(Ateam), "utf-8");
+
+}
