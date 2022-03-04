@@ -7,22 +7,43 @@ const Engineer = require("./lib/Engineer")
 const Intern = require("./lib/Intern");
 
 
+const Ateam = []
 
+const managerQuestions = () => {
 
-function QuestionsManager() {
-
-  inquirer.prompt([
+inquirer
+.prompt([
     {
     type:"input",
     name: "name",
-    message:"Manager: What is the name?"
-    }
+    message:"What is the team manager's name?",
+    },
+    {
+    type: "input",
+    name: "id",
+      message: "What is the team manager's employee id?",
+    },
+    {
+    type: "input",
+    name: "email",
+    message: "What is the team manager's email?",
+    },
+    {
+    type: "input",
+    name: "officeNumber",
+    message: "What is the team manager's office number?",
+    },
   
-  
-  ]).then(answers =>{console.log(answers)})
-
+  ])
+  .then((managerAnswers) => {
+    const Mang = new Manager(managerAnswers.name, managerAnswers.id, managerAnswers.email, managerAnswers.officeNumber)
+    Ateam.push(Mang)
+  })
 
 }
+
+managerQuestions()
+
 
 // function for manager.inquirer
 // .then create an new manager
