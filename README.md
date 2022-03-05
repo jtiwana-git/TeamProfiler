@@ -1,7 +1,9 @@
 # TeamProfiler
 
-## GITHUB REPO - 
-## VIDEO WALKTHROUGH -
+## GITHUB REPO - https://github.com/jtiwana-git/TeamProfiler
+## VIDEO WALKTHROUGH
+PART 1 (VSCODE) - https://drive.google.com/file/d/1M9gbkBH5LxFitmGmtaT1GnfBGE34d8ju/view?usp=sharing <br>
+PART 2 (HTML & BROWSER) -  https://drive.google.com/file/d/1U4SeLkeKZzoz0O4PtNnywBa_h_aDwv36/view?usp=sharing
 
 ## User Story
 AS A manager
