@@ -1,19 +1,8 @@
 let Manager = require("../lib/Manager")
 
+test.todo("When the user inputs the manager's Office Number"), () => {
+  const officeNo = "0159959999" 
+    
+  expect(Manager({officeNumber})).tobe(officeNo)
 
-describe("Getting the manager Office number", () => {
-it("Office Number"), () => {
-  const officeNo = "1123"
-  expect(Manager.officeNumber).tobe(officeNo)
 }
-})
-
-
-
-describe("Get role", () => {
-test("getRole", () => {
-  const Role = "Manager";
-
-  expect(Manager.getRole()).toEqual("Manager");
-}); 
-})
