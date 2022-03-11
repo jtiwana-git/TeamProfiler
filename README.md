@@ -3,7 +3,8 @@
 ## GITHUB REPO - https://github.com/jtiwana-git/TeamProfiler
 ## VIDEO WALKTHROUGH
 PART 1 (VSCODE) - https://drive.google.com/file/d/1M9gbkBH5LxFitmGmtaT1GnfBGE34d8ju/view?usp=sharing <br>
-PART 2 (HTML & BROWSER) -  https://drive.google.com/file/d/1U4SeLkeKZzoz0O4PtNnywBa_h_aDwv36/view?usp=sharing
+PART 2 (HTML & BROWSER) -  https://drive.google.com/file/d/1U4SeLkeKZzoz0O4PtNnywBa_h_aDwv36/view?usp=sharing <br>
+PART 3 (TESTING) - https://drive.google.com/file/d/1tmJ31X7fEry2RB2gkD9DKYf90FixtoPa/view?usp=sharing
 
 ## User Story
 AS A manager
@@ -46,4 +47,5 @@ Special thanks to Bootcamp, Tom, Rhys, Sara and my fellow peers
 
 ## How did you test your project? 
 Loads of debugging in the command terminal – especially using the command line – “clear” or “node index.js”
-Please see link to see the test files – TO BE UPLOADED
+
+![A demo gif of test terminal](Test.gif)
